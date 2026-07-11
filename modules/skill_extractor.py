@@ -48,6 +48,7 @@ def extract_skills(text, skills_set):
                 extracted_skills.add(skill)
         
         return list(extracted_skills)
+    
     except Exception as e:
         logger.error("Error extracting skills: %s", e)
         raise
