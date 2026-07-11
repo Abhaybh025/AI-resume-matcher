@@ -1,4 +1,8 @@
 import re 
+from config.logging_config import get_logger
+
+# Logging 
+logger = get_logger(__name__)
 
 def clean_resume_text(text):
     """
@@ -11,32 +15,38 @@ def clean_resume_text(text):
         str: Cleaned text
     """
 
-    ## lowercase 
-    text = text.lower()
-    #print('After lowercasing:', text)
+    logger.info("Cleaning resume text")
+    
+    try:
+        ## lowercase 
+        text = text.lower()
+        #print('After lowercasing:', text)
 
-    ## remove urls and domains
-    text = re.sub(r'http\S+|www\S+|\S+\.(com|org|net|in)\S*', ' ', text)
-    #print('After removing urls and domains:', text)
+        ## remove urls and domains
+        text = re.sub(r'http\S+|www\S+|\S+\.(com|org|net|in)\S*', ' ', text)
+        #print('After removing urls and domains:', text)
 
-    ## remove emails
-    text = re.sub(r'\S+@\S+', ' ', text)
-    #print('After removing emails:', text)
+        ## remove emails
+        text = re.sub(r'\S+@\S+', ' ', text)
+        #print('After removing emails:', text)
 
-    ## remove special chars
-    text = re.sub(r'[^a-zA-Z0-9\s]', ' ', text)
-    #print('After removing special characters:', text)
+        ## remove special chars
+        text = re.sub(r'[^a-zA-Z0-9\s]', ' ', text)
+        #print('After removing special characters:', text)
 
-    ## phone numbers
-    text = re.sub(r'\+?\d[\d\s\-]{8,}\d', ' ', text)
-    #print('After removing phone numbers:', text)
+        ## phone numbers
+        text = re.sub(r'\+?\d[\d\s\-]{8,}\d', ' ', text)
+        #print('After removing phone numbers:', text)
 
-    ## remove extra spaces
-    text = re.sub(r'\s+', ' ', text)
-    #print('After removing extra spaces:', text)
+        ## remove extra spaces
+        text = re.sub(r'\s+', ' ', text)
+        #print('After removing extra spaces:', text)
 
-    return text.strip()
-
+        return text.strip()
+    
+    except Exception as e:
+        logger.error("Error cleaning text: %s", e)
+        raise
 
 def count_words(text):
     """
