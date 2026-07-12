@@ -73,6 +73,9 @@ def analyze_resume(resume_text, jd_text, skills_set):
             "skill_score": skill_score,
             "semantic_score": semantic_score,
             "skill_comparison": skill_comparison,
+            "matched_skills" : skill_comparison["matched_skills"],
+            "missing_skills" : skill_comparison["missing_skills"],
+            "extra_skills" : skill_comparison["extra_skills"],
             "strengths": strengths,
             "weaknesses": weaknesses
         }
