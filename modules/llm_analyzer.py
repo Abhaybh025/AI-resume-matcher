@@ -3,13 +3,44 @@ from dotenv import load_dotenv
 
 from langchain_core.prompts import ChatPromptTemplate 
 from langchain_groq import ChatGroq
+from pydantic import BaseModel, Field
 
 load_dotenv()
+
+class ResumeAnalysis(BaseModel):
+    overall_evaluation: str = Field(
+        description="Overall resume evaluation"
+    )
+    strengths: list[str] = Field(
+        description="Strengths of the resume."
+    )
+
+    weaknesses: list[str] = Field(
+        description="Weaknesses of the resume."
+    )
+
+    missing_skills: list[str] = Field(
+        description="Missing technical skills."
+    )
+
+    ats_improvements: list[str] = Field(
+        description="ATS improvement suggestions."
+    )
+
+    resume_improvements: list[str] = Field(
+        description="General resume improvement suggestions."
+    )
+
+    final_recommendation: str = Field(
+        description="Final hiring recommendation."
+    )
 
 llm  = ChatGroq(
     model = "llama-3.3-70b-versatile",
     temperature = 0,   
 )
+
+structured_llm = llm.with_structured_output(ResumeAnalysis)
 
 def create_prompt():
 
@@ -63,7 +94,7 @@ def generate_llm_feedback(
 ):
     prompt = create_prompt()
 
-    chain = prompt | llm
+    chain = prompt | structured_llm
 
     response = chain.invoke({
         "resume" : resume_text,
@@ -79,4 +110,5 @@ def generate_llm_feedback(
         "ats_score" : ats_result["ats_score"]
     })
 
-    return response.content
+    return response
+
