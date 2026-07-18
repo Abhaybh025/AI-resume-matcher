@@ -4,7 +4,10 @@ from config.logging_config import get_logger
 # Logging 
 logger = get_logger(__name__)
 
-def clean_resume_text(text):
+def clean_resume_text(
+        text,
+        keep_urls = False,
+    ):
     """
     Clean resume/JD text
 
@@ -22,21 +25,15 @@ def clean_resume_text(text):
         text = text.lower()
         #print('After lowercasing:', text)
 
-        ## remove urls and domains
-        text = re.sub(r'http\S+|www\S+|\S+\.(com|org|net|in)\S*', ' ', text)
-        #print('After removing urls and domains:', text)
+        if (not keep_urls):
+            ## remove urls and domains
+            text = re.sub(r'http\S+|www\S+|\S+\.(com|org|net|in)\S*', ' ', text)
 
-        ## remove emails
-        text = re.sub(r'\S+@\S+', ' ', text)
-        #print('After removing emails:', text)
+            ## remove emails
+            text = re.sub(r'\S+@\S+', ' ', text)
 
-        ## remove special chars
-        text = re.sub(r'[^a-zA-Z0-9\s]', ' ', text)
-        #print('After removing special characters:', text)
-
-        ## phone numbers
-        text = re.sub(r'\+?\d[\d\s\-]{8,}\d', ' ', text)
-        #print('After removing phone numbers:', text)
+            ## phone numbers
+            text = re.sub(r'\+?\d[\d\s\-]{8,}\d', ' ', text)
 
         ## remove extra spaces
         text = re.sub(r'\s+', ' ', text)
