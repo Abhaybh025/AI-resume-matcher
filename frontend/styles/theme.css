@@ -1,0 +1,533 @@
+:root{
+
+    --bg:#0F172A;
+
+    --surface:#1E293B;
+
+    --surface2:#273449;
+
+    --primary:#3B82F6;
+
+    --green:#22C55E;
+
+    --yellow:#F59E0B;
+
+    --red:#EF4444;
+
+    --text:#F8FAFC;
+
+    --text2:#CBD5E1;
+
+    --border:#334155;
+
+    /* Spacing */
+
+    --space-xs: 6px;
+
+    --space-sm: 12px;
+
+    --space-md: 20px;
+
+    --space-lg: 32px;
+
+    --space-xl: 48px;
+
+
+    --radius-sm:10px;
+
+    --radius:16px;
+
+    --radius-lg:22px;
+
+}
+
+
+.stApp{
+
+    background:var(--bg);
+
+}
+
+.block-container{
+
+    max-width:1280px;
+
+    margin:auto;
+
+    padding-top:24px;
+
+    padding-bottom:40px;
+
+    padding-left:24px;
+
+    padding-right:24px;
+
+}
+
+
+h1{
+
+    font-size:3rem;
+
+    font-weight:800;
+
+    letter-spacing:-1px;
+
+    color:var(--text);
+
+    margin-bottom:6px;
+
+}
+
+h2{
+
+    font-size:2rem;
+
+    font-weight:700;
+
+    color:var(--text);
+
+}
+
+h3{
+
+    font-size:1.4rem;
+
+    font-weight:600;
+
+    color:var(--text);
+
+}
+
+p,
+label,
+small{
+
+    color:var(--text2);
+
+    line-height: 1.6;
+}
+
+
+.stButton>button{
+
+    width:100%;
+
+    height:54px;
+
+    border:none;
+
+    border-radius:var(--radius);
+
+    background:linear-gradient(
+        135deg,
+        #3B82F6,
+        #2563EB
+    );
+
+    color:white;
+
+    font-weight:700;
+
+    transition:.25s;
+
+    box-shadow:var(--shadow);
+
+}
+
+.stButton>button:hover{
+
+    transform:translateY(-2px);
+/* 
+    box-shadow:0 8px 20px rgba(59,130,246,.3); */
+
+}
+
+
+/* Upload section */
+
+div[data-testid="stFileUploader"]{
+
+    border:2px dashed var(--border);
+
+    border-radius:var(--radius);
+
+    padding:18px;
+
+    background:var(--surface);
+
+}
+
+div[data-testid="stFileUploader"] {
+    min-height: 300px;
+}
+
+div[data-testid="stFileUploaderDropzone"] {
+    min-height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+textarea{
+
+    min-height:280px !important;
+
+    border-radius:var(--radius-sm) !important;
+
+}
+
+.stTabs [role="tab"]{
+
+    border-radius:10px;
+
+    padding:12px 22px;
+
+    font-weight:600;
+
+}
+
+
+.stProgress{
+
+    height:12px;
+
+}
+
+
+.card{
+
+    background:var(--surface);
+
+    border-radius:18px;
+
+    padding:20px;
+
+    border:1px solid var(--border);
+
+}
+
+hr{
+
+    border:0;
+
+    border-top:1px solid var(--border);
+
+    margin:28px 0;
+
+}
+
+h1{
+
+    margin-bottom:0px !important;
+
+}
+
+div[data-testid="stCaptionContainer"]{
+
+    margin-top:-5px;
+
+}
+
+section.main > div{
+
+    gap:1.5rem;
+
+}
+
+/* Upload status */
+
+.upload-status{
+    margin-top:12px;
+
+    padding:12px 14px;
+
+    border-radius:10px;
+
+    background:#1E293B;
+
+    color:#CBD5E1;
+
+    font-size:14px;
+
+    border:1px solid #334155;
+}
+
+.upload-status.success{
+    background:#143A2D;
+
+    border:1px solid #22C55E;
+
+    color:#E5FFF2;
+
+    font-weight:600;
+}
+
+/* ===========================
+   Metric Cards
+=========================== */
+
+.metric-card{
+
+    background:#182235;
+
+    border-radius:18px;
+
+    padding:24px;
+
+    border:1px solid #26364F;
+
+    transition:all .25s ease;
+
+    text-align:center;
+
+    height:250px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+}
+
+.metric-card:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 12px 30px rgba(0,0,0,.35);
+}
+
+.metric-icon{
+
+    font-size:32px;
+}
+
+.metric-value{
+
+    font-size:42px;
+
+    font-weight:700;
+
+    color:white;
+}
+
+.metric-title{
+
+    color:#94A3B8;
+
+    font-size:16px;
+}
+
+.metric-progress{
+
+    width:100%;
+
+    height:10px;
+
+    background:#2C3B55;
+
+    border-radius:20px;
+
+    overflow:hidden;
+}
+
+.metric-fill{
+
+    height:100%;
+
+    border-radius:20px;
+
+    background:#3B82F6;
+}
+
+.metric-status{
+
+    color:#CBD5E1;
+
+    font-size:14px;
+
+    font-weight:600;
+}
+
+.metric-good{
+
+    border-top:4px solid #22C55E;
+}
+
+.metric-good .metric-fill{
+
+    background:#22C55E;
+}
+
+.metric-medium{
+
+    border-top:4px solid #F59E0B;
+}
+
+.metric-medium .metric-fill{
+
+    background:#F59E0B;
+}
+
+.metric-bad{
+
+    border-top:4px solid #EF4444;
+}
+
+.metric-bad .metric-fill{
+
+    background:#EF4444;
+}
+
+/* Overview Tab (score section) */
+.score-section{
+    text-align:center;
+    margin-bottom:18px;
+}
+
+.big-score{
+    font-size:58px;
+    font-weight:700;
+    color:white;
+    line-height:1;
+}
+
+.score-label{
+    color:#94A3B8;
+    font-size:18px;
+    margin-top:8px;
+}
+
+/* stat cards(matched, missing, extra) */
+.stat-card{
+
+    background:#172033;
+    border:1px solid #334155;
+
+    border-radius:14px;
+
+    text-align:center;
+
+    padding:18px;
+}
+
+.stat-title{
+
+    color:#94A3B8;
+    font-size:15px;
+}
+
+.stat-value{
+
+    font-size:34px;
+    color:white;
+    font-weight:700;
+}
+
+/* ==========================
+   Overview Cards
+========================== */
+
+.info-card{
+
+    background:#1E293B;
+
+    border:1px solid #334155;
+
+    border-radius:16px;
+
+    padding:22px;
+
+    height:100%;
+
+    margin-top:10px;
+}
+
+.info-card h4{
+
+    margin-bottom:18px;
+
+    color:white;
+}
+
+.bullet-item{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:10px;
+
+    margin-bottom:14px;
+
+    color:#CBD5E1;
+
+    line-height:1.5;
+}
+
+.bullet-icon{
+
+    color:#22C55E;
+
+    font-weight:bold;
+
+    min-width:18px;
+}
+
+.skill-chip{
+
+    padding:10px 14px;
+
+    margin-bottom:10px;
+
+    border-radius:10px;
+
+    font-weight:500;
+}
+
+.matched{
+    background:#134E4A;
+    color:#D1FAE5;
+}
+
+.missing{
+    background:#7F1D1D;
+    color:#FECACA;
+}
+
+.extra{
+    background:#1E3A5F;
+    color:#DBEAFE;
+}
+
+.skill-container{
+
+    height:420px;
+
+    overflow-y:auto;
+
+    padding-right:6px;
+}
+
+/* ATS */
+.ats-hero{
+    text-align:center;
+    padding:20px 0 10px 0;
+}
+
+.ats-icon{
+    font-size:38px;
+}
+
+.ats-score{
+    font-size:56px;
+    font-weight:700;
+    color:white;
+    line-height:1.1;
+}
+
+.ats-title{
+    color:#9CA3AF;
+    font-size:18px;
+    margin-top:6px;
+}
