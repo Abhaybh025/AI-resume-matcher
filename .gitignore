@@ -1,4 +1,4 @@
-data/
 .env
 project.excalidraw
 logs/
+.streamlit/
