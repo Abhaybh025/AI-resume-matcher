@@ -129,9 +129,12 @@ python -m tests.test_file
 
 > _Add screenshots of the dashboard here, e.g.:_
 >
-> `![Dashboard Overview](assets/screenshot-overview.png)`
-> `![ATS Score Breakdown](assets/screenshot-ats.png)`
-> `![LLM Feedback Panel](assets/screenshot-feedback.png)`
+> ![Upload Section](assets/overview.png)
+> ![Resume Metrices](assets/metrics.png)
+> ![Overview Tab](assets/overview_tab.png)
+> ![Skills Tab](assets/skills_tab.png)
+> ![ATS Analysis Tab](assets/ATS_tab.png)
+> ![LLM Analysis Tab](assets/LLM_tab.png)
 
 ---
 
